@@ -33,7 +33,7 @@ export default function Home() {
           })}
           href="/dashboard"
           target="_blank">
-          Começe agora <ArrowRight className="ml-2 h-5 w-5" />
+          Comece agora <ArrowRight className="ml-2 h-5 w-5" />
         </Link>
       </MaxWidthWrapper>
 
