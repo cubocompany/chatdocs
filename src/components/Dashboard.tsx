@@ -1,14 +1,17 @@
 "use client";
 
-import { trpc } from "@/app/_trpc/client";
-import { UploadButton } from "./UploadButton";
-import { Ghost, Loader2, MessagesSquare, Plus, Trash } from "lucide-react";
-import Skeleton from "react-loading-skeleton";
-import Link from "next/link";
+import { useState } from "react";
+
 import { format } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
+import { Ghost, Loader2, MessagesSquare, Plus, Trash } from "lucide-react";
+import Link from "next/link";
+import Skeleton from "react-loading-skeleton";
+
+import { trpc } from "@/app/_trpc/client";
+
+import { UploadButton } from "./UploadButton";
 import { Button } from "./ui/button";
-import { useState } from "react";
 
 export function Dashboard() {
   const [currentlyDeletingFile, setCurrentlyDeletingFile] = useState<
@@ -16,8 +19,8 @@ export function Dashboard() {
   >(null);
 
   const utils = trpc.useContext();
-  const { data: files } = trpc.getUserFiles.useQuery();
-  const { mutate: deleteFile, isLoading } = trpc.deleteFile.useMutation({
+  const { data: files, isLoading } = trpc.getUserFiles.useQuery();
+  const { mutate: deleteFile } = trpc.deleteFile.useMutation({
     onSuccess: () => {
       utils.getUserFiles.invalidate();
     },
@@ -102,7 +105,7 @@ export function Dashboard() {
       ) : (
         <div className="mt-16 flex flex-col items-center gap-2">
           <Ghost className="h-8 w-8 text-zinc-800" />
-          <h3 className="font-semibold text-xl">Parece meio vazio por aqui.</h3>
+          <h3 className="font-semibold text-xl">Está meio vazio por aqui.</h3>
           <p>Faça um upload de PDF para começar</p>
         </div>
       )}

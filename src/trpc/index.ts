@@ -1,8 +1,11 @@
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-import { privateProcedure, publicProcedure, router } from "./trpc";
+import { UploadStatus } from "@prisma/client";
 import { TRPCError } from "@trpc/server";
-import { db } from "@/db";
 import { z } from "zod";
+
+import { db } from "@/db";
+
+import { privateProcedure, publicProcedure, router } from "./trpc";
 
 export const appRouter = router({
   health: publicProcedure.query(() => {
@@ -65,6 +68,44 @@ export const appRouter = router({
           id: input.id,
         },
       });
+
+      return file;
+    }),
+  getFileUploadStatus: privateProcedure
+    .input(
+      z.object({
+        fileId: z.string(),
+      }),
+    )
+    .query(async ({ ctx, input }) => {
+      const file = await db.file.findFirst({
+        where: {
+          id: input.fileId,
+          userId: ctx.userId,
+        },
+      });
+
+      if (!file) {
+        return { status: UploadStatus.PENDING };
+      }
+
+      return { status: file.uploadStatus };
+    }),
+  getFile: privateProcedure
+    .input(z.object({ key: z.string() }))
+    .mutation(async ({ ctx, input }) => {
+      const { userId } = ctx;
+
+      const file = await db.file.findFirst({
+        where: {
+          key: input.key,
+          userId,
+        },
+      });
+
+      if (!file) {
+        throw new TRPCError({ code: "NOT_FOUND" });
+      }
 
       return file;
     }),
