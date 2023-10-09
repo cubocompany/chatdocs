@@ -33,8 +33,8 @@ export function PdfFullscreen({ fileUrl }: PdfFullscreenProps) {
           <Expand className="h-4 w-4" />
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-7xl w-full">
-        <SimpleBar autoHide={false} className="max-h-[calc(100vh-10rem)] mt-6">
+      <DialogContent className="w-full max-w-7xl">
+        <SimpleBar autoHide={false} className="mt-6 max-h-[calc(100vh-10rem)]">
           <div ref={ref}>
             <Document
               file={fileUrl}

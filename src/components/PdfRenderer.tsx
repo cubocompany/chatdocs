@@ -74,9 +74,9 @@ export function PdfRenderer({ url }: PdfRendererProps) {
   }
 
   return (
-    <div className="w-full bg-white rounded-md shadow flex flex-col items-center">
+    <div className="flex w-full flex-col items-center rounded-md bg-white shadow">
       {/* Toolbar */}
-      <div className="h-14 w-full border-b border-zinc-200 flex items-center justify-between px-2">
+      <div className="flex h-14 w-full items-center justify-between border-b border-zinc-200 px-2">
         <div className="flex items-center gap-1.5">
           <Button
             variant="ghost"
@@ -101,7 +101,7 @@ export function PdfRenderer({ url }: PdfRendererProps) {
                 }
               }}
             />
-            <p className="text-zinc-700 text-sm space-x-1">
+            <p className="space-x-1 text-sm text-zinc-700">
               <span>/</span>
               <span>{numPages ?? "x"}</span>
             </p>
@@ -164,7 +164,7 @@ export function PdfRenderer({ url }: PdfRendererProps) {
       </div>
 
       {/* PDF Page */}
-      <div className="flex-1 w-full max-h-screen">
+      <div className="max-h-screen w-full flex-1">
         <SimpleBar autoHide={false} className="max-h-[calc(100vh-10rem)]">
           <div ref={ref}>
             <Document

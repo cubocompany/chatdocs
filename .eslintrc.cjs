@@ -7,6 +7,7 @@ module.exports = {
   extends: [
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended",
+    "plugin:tailwindcss/recommended",
     "plugin:prettier/recommended",
   ],
   parser: "@typescript-eslint/parser",
@@ -87,6 +88,7 @@ module.exports = {
         allowSeparatedGroups: true,
       },
     ],
+    "tailwindcss/no-custom-classname": ["off"],
   },
   settings: {
     react: {

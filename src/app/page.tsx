@@ -8,7 +8,7 @@ import { buttonVariants } from "@/components/ui/button";
 export default function Home() {
   return (
     <>
-      <MaxWidthWrapper className="mb-12 mt-28 sm:mt-40 flex flex-col items-center justify-center text-center">
+      <MaxWidthWrapper className="mb-12 mt-28 flex flex-col items-center justify-center text-center sm:mt-40">
         <div
           className="mx-auto mb-4 flex max-w-fit items-center justify-center space-x-2 overflow-hidden
        rounded-full border border-gray-200 bg-white px-7 py-2 shadow-md backdrop-blur transition-all
@@ -61,7 +61,7 @@ export default function Home() {
                     height={866}
                     quality={100}
                     alt="imagem de exemplo do dashboard"
-                    className="rounded-md bg-white p-2 sm:p-8 md:p-20 shadow-2xl ring-1 ring-gray-900/10"
+                    className="rounded-md bg-white p-2 shadow-2xl ring-1 ring-gray-900/10 sm:p-8 md:p-20"
                   />
                 </div>
               </div>
@@ -82,10 +82,10 @@ export default function Home() {
       </div>
 
       {/* Seção de features */}
-      <div className="mx-auto mb-32 mt-32 max-w-5xl sm:mt-56">
+      <div className="mx-auto my-32 max-w-5xl sm:mt-56">
         <div className="mb-12 px-6 lg:px-8">
           <div className="mx-auto max-w-2xl sm:text-center">
-            <h2 className="mt-2 font-bold text-4xl text-gray-900 sm:text-5xl">
+            <h2 className="mt-2 text-4xl font-bold text-gray-900 sm:text-5xl">
               Comece a conversar em minutos!
             </h2>
             <p className="mt-4 text-lg text-gray-600">
@@ -148,7 +148,7 @@ export default function Home() {
                 width={1419}
                 height={732}
                 quality={100}
-                className="rounded-md bg-white p-2 sm:p-8 md:p-20 shadow-2xl ring-1 ring-gray-900/10"
+                className="rounded-md bg-white p-2 shadow-2xl ring-1 ring-gray-900/10 sm:p-8 md:p-20"
               />
             </div>
           </div>

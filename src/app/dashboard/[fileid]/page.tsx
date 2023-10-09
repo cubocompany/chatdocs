@@ -34,8 +34,8 @@ export default async function Page({ params }: PageProps) {
   }
 
   return (
-    <div className="flex-1 justify-between flex flex-col h-[calc(100vh-3.5rem)]">
-      <div className="mx-auto w-full max-w-8xl grow lg:flex xl:px-2">
+    <div className="flex h-[calc(100vh-3.5rem)] flex-1 flex-col justify-between">
+      <div className="max-w-8xl mx-auto w-full grow lg:flex xl:px-2">
         {/* left side */}
         <div className="flex-1 xl:flex">
           <div className="px-4 py-6 sm:px-4 lg:pl-8 xl:flex-1 xl:pl-6">
@@ -44,7 +44,7 @@ export default async function Page({ params }: PageProps) {
         </div>
 
         {/* right side */}
-        <div className="shrink-0 flex-[0.75] border-t border-gray-200 lg:w-96 lg:border-l lg:border-t-0">
+        <div className="flex-[0.75] shrink-0 border-t border-gray-200 lg:w-96 lg:border-l lg:border-t-0">
           <ChatWrapper fileId={file.id} />
         </div>
       </div>
